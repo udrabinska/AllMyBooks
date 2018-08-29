@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">All My Books</string>
+    <string name="placeholder_text">Dzień dobry, drodzy SS! Tu będzie lista książek.</string>
+    <string name="no_books">It\'s a bit empty here… Start building a bookcase by adding some books.</string>
+</resources>
