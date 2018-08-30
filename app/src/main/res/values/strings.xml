@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">All My Books</string>
     <string name="placeholder_text">Dzień dobry, drodzy SS! Tu będzie lista książek.</string>
+    <string name="placeholder_text_2">A tu będzie sobie biblioteczka:</string>
     <string name="no_books">It\'s a bit empty here… Start building a bookcase by adding some books.</string>
+
+    <string name="settings_title">Bookcase settings</string>
+    <string name="settings_view_label">Main view</string>
+    <string name="settings_view_key">main_view</string>
+    <string name="settings_view_default">@string/list_view_value</string>
+    <string name="list_view_label">List of all books</string>
+    <string name="list_view_value">list_view</string>
+    <string name="bookcase_view_label">Bookcase and shelves</string>
+    <string name="bookcase_view_value">bookcase_view</string>
 </resources>

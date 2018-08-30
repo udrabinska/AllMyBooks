@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="main_view_labels">
+        <item>@string/list_view_label</item>
+        <item>@string/bookcase_view_label</item>
+    </string-array>
+    <string-array name="main_view_values">
+        <item>@string/list_view_value</item>
+        <item>@string/bookcase_view_value</item>
+    </string-array>
+</resources>
