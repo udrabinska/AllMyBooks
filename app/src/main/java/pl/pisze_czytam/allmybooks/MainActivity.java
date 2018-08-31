@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
             BookcasePagerAdapter adapter = new BookcasePagerAdapter(getSupportFragmentManager(), this);
             viewPager.setAdapter(adapter);
         }
-        BottomAppBar bottomAppBar = findViewById(R.id.bottom_bar);
+        View include = findViewById(R.id.nav_fab);
+        BottomAppBar bottomAppBar = include.findViewById(R.id.bottom_bar);
         setSupportActionBar(bottomAppBar);
     }
 
@@ -45,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_change_view:
-                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                 showAll = !showAll;
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
                 String viewPref = sharedPreferences.getString(getString(R.string.settings_view_key), getString(R.string.settings_view_default));
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "clicked and nothing so far", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.nav_settings:
-                Toast.makeText(getApplicationContext(), "clicked and nothing so far", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, SettingsActivity.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);

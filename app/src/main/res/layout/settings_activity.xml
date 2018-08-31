@@ -5,5 +5,4 @@
     android:name="pl.pisze_czytam.allmybooks.SettingsActivity$BookcaseSettingsFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:contet="pl.pisze_czytam.allmybooks.SettingsActivity">
-</fragment>
+    tools:context="pl.pisze_czytam.allmybooks.SettingsActivity" />
