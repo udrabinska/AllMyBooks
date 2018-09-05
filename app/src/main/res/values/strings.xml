@@ -12,4 +12,8 @@
     <string name="list_view_value">list_view</string>
     <string name="bookcase_view_label">Bookcase and shelves</string>
     <string name="bookcase_view_value">bookcase_view</string>
+
+    <string name="image_description">book cover</string>
+    <string name="title">Title</string>
+    <string name="author">Author</string>
 </resources>

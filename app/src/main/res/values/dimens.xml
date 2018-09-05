@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="card_radius">4dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="minimal_padding">8dp</dimen>
     <dimen name="standard_padding">16dp</dimen>
     <dimen name="double_padding">32dp</dimen>
 
     <dimen name="fab_deep">20dp</dimen>
     <dimen name="navigation_height">56dp</dimen>
+
+    <dimen name="cover_size">100dp</dimen>
 </resources>
