@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
@@ -15,13 +16,19 @@ import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
+import pl.pisze_czytam.allmybooks.databinding.AllBooksBinding;
+import pl.pisze_czytam.allmybooks.databinding.BookcaseMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     boolean showAll;
     ArrayList<Book> allBooks = new ArrayList<>();
+    AllBooksBinding allBooksBinding;
+    BookcaseMainBinding bookcaseMainBinding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,24 +38,22 @@ public class MainActivity extends AppCompatActivity {
 
         if (viewPref.equals(getString(R.string.list_view_value))) {
             setContentView(R.layout.all_books);
-
+            allBooksBinding = DataBindingUtil.setContentView(this, R.layout.all_books);
             allBooks.add(new Book("Upał", "Michał Olszewski", ContextCompat.getDrawable(getApplicationContext(), R.drawable.book_cover_6)));
             allBooks.add(new Book("Duchowe życie zwierząt", "Peter Wohlleben", ContextCompat.getDrawable(getApplicationContext(), R.drawable.book_cover_1)));
             allBooks.add(new Book("Jak przestałem kochać design", "Marcin Wicha", ContextCompat.getDrawable(getApplicationContext(), R.drawable.book_cover_5)));
             allBooks.add(new Book("Międzymorze", "Ziemowit Szczerek", ContextCompat.getDrawable(getApplicationContext(), R.drawable.book_cover_4)));
             allBooks.add(new Book("Osiołkiem", "Andrzej Stasiuk", ContextCompat.getDrawable(getApplicationContext(), R.drawable.book_cover_2)));
             allBooks.add(new Book("Prowadź swój pług przez kości umarłych", "Olga Tokarczuk", ContextCompat.getDrawable(getApplicationContext(), R.drawable.book_cover_3)));
-
-            RecyclerView recyclerView = findViewById(R.id.recycler_view);
             LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-            recyclerView.setLayoutManager(layoutManager);
+            allBooksBinding.recyclerView.setLayoutManager(layoutManager);
             AllBooksAdapter adapter = new AllBooksAdapter(allBooks);
-            recyclerView.setAdapter(adapter);
+            allBooksBinding.recyclerView.setAdapter(adapter);
         } else {
             setContentView(R.layout.bookcase_main);
-            ViewPager viewPager = findViewById(R.id.viewpager);
+            bookcaseMainBinding = DataBindingUtil.setContentView(this, R.layout.bookcase_main);
             BookcasePagerAdapter adapter = new BookcasePagerAdapter(getSupportFragmentManager(), this);
-            viewPager.setAdapter(adapter);
+            bookcaseMainBinding.viewpager.setAdapter(adapter);
         }
         View include = findViewById(R.id.nav_fab);
         BottomAppBar bottomAppBar = include.findViewById(R.id.bottom_bar);

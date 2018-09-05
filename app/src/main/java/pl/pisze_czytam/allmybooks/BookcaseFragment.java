@@ -8,7 +8,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import pl.pisze_czytam.allmybooks.databinding.BookcaseFragmentBinding;
+import pl.pisze_czytam.allmybooks.databinding.BookcaseMainBinding;
 
 public class BookcaseFragment extends Fragment {
     @Override
