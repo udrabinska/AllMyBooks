@@ -8,7 +8,7 @@
         <item name="android:fontFamily">serif-monospace</item>
     </style>
 
-    <style name="AppSettingTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="TopTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>

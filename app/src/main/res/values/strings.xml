@@ -5,6 +5,7 @@
     <string name="no_books">It\'s a bit empty here… Start building a bookcase by adding some books.</string>
 
     <string name="settings_title">Bookcase settings</string>
+    <string name="settings">Settings</string>
     <string name="settings_view_label">Main view</string>
     <string name="settings_view_key">main_view</string>
     <string name="settings_view_default">@string/list_view_value</string>

@@ -2,15 +2,16 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="@dimen/standard_padding">
+        tools:context=".BookDetailsActivity">
 
         <RelativeLayout
+            android:id="@+id/main_info"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="@dimen/standard_padding" >
 
             <ImageView
                 android:id="@+id/cover"
@@ -27,8 +28,8 @@
                 android:layout_toEndOf="@id/cover"
                 android:paddingStart="@dimen/standard_padding"
                 android:paddingEnd="@dimen/standard_padding"
-                android:text="Jak przestałem kochać design"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="Jak przestałem kochać design" />
 
             <TextView
                 android:id="@+id/author"
@@ -39,7 +40,7 @@
                 android:paddingStart="@dimen/standard_padding"
                 android:paddingEnd="@dimen/standard_padding"
                 android:paddingBottom="@dimen/double_padding"
-                android:text="Marcin Wicha" />
+                tools:text="Marcin Wicha" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -49,24 +50,38 @@
                 android:paddingStart="@dimen/standard_padding"
                 android:paddingEnd="@dimen/standard_padding"
                 android:text="2015" />
+
+            <TextView
+                android:id="@+id/additional_info1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cover"
+                android:paddingTop="@dimen/minimal_padding"
+                android:text="Inne informacje" />
+
+            <TextView
+                android:id="@+id/additional_info2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/additional_info1"
+                android:paddingTop="@dimen/minimal_padding"
+                android:text="Inne informacje" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/additional_info2"
+                android:paddingTop="@dimen/minimal_padding"
+                android:text="Inne informacje" />
         </RelativeLayout>
 
-        <TextView
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/standard_padding"
-            tools:text="Inne informacje" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/standard_padding"
-            android:text="Inne informacje" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/standard_padding"
-            android:text="Inne informacje" />
-    </LinearLayout>
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/standard_padding"
+            android:src="@drawable/ic_edit" />
+    </RelativeLayout>
 </layout>

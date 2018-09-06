@@ -22,7 +22,7 @@
             android:label="@string/settings_title"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppSettingTheme">
+            android:theme="@style/TopTheme">
             <!-- Parent activity meta-data to support 4.0 and lower (since minSDK is 17) -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -32,7 +32,7 @@
             android:name=".BookDetails"
             android:label="@string/book_details"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme">
+            android:theme="@style/TopTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
