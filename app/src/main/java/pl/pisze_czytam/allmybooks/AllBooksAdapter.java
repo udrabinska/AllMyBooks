@@ -13,10 +13,12 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class AllBooksAdapter extends RecyclerView.Adapter<AllBooksAdapter.BookViewHolder> {
-    ArrayList<Book> books;
+    private ArrayList<Book> books;
+    private final OnItemClickListener listener;
 
-    public AllBooksAdapter(ArrayList<Book> books) {
+    public AllBooksAdapter(ArrayList<Book> books, OnItemClickListener listener) {
         this.books = books;
+        this.listener = listener;
     }
 
     @NonNull
@@ -28,6 +30,7 @@ public class AllBooksAdapter extends RecyclerView.Adapter<AllBooksAdapter.BookVi
 
     @Override
     public void onBindViewHolder(@NonNull BookViewHolder holder, int position) {
+        holder.bind(books.get(position), listener);
         holder.cover.setImageDrawable(books.get(position).getCover());
         holder.title.setText(books.get(position).getTitle());
         holder.author.setText(books.get(position).getAuthor());
@@ -36,11 +39,6 @@ public class AllBooksAdapter extends RecyclerView.Adapter<AllBooksAdapter.BookVi
     @Override
     public int getItemCount() {
         return books.size();
-    }
-
-    @Override
-    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
-        super.onAttachedToRecyclerView(recyclerView);
     }
 
     public static class BookViewHolder extends RecyclerView.ViewHolder {
@@ -56,5 +54,17 @@ public class AllBooksAdapter extends RecyclerView.Adapter<AllBooksAdapter.BookVi
             title = itemView.findViewById(R.id.title);
             author = itemView.findViewById(R.id.author);
         }
+
+        public void bind(final Book book, final OnItemClickListener listener) {
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    listener.onItemClick(book);
+                }
+            });
+        }
+    }
+
+    public interface OnItemClickListener{
+        void onItemClick(Book book);
     }
 }

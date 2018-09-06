@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto">
-
-    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="@dimen/minimal_padding">
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools" >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/standard_padding" >
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/minimal_padding"
+            android:padding="@dimen/standard_padding"
             card_view:cardCornerRadius="@dimen/card_radius"
             card_view:cardElevation="@dimen/card_elevation">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-
                 <ImageView
                     android:id="@+id/cover"
                     android:layout_width="match_parent"
@@ -36,6 +35,8 @@
                     android:layout_below="@id/cover"
                     android:paddingStart="@dimen/minimal_padding"
                     android:paddingTop="@dimen/minimal_padding"
+                    android:paddingEnd="@dimen/minimal_padding"
+                    android:textStyle="bold"
                     tools:text="@string/title" />
 
                 <TextView
@@ -44,6 +45,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/title"
                     android:paddingStart="@dimen/minimal_padding"
+                    android:paddingEnd="@dimen/minimal_padding"
                     android:paddingBottom="@dimen/minimal_padding"
                     tools:text="@string/author" />
             </RelativeLayout>
