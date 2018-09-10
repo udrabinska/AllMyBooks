@@ -19,9 +19,9 @@ public abstract class BookRoomDatabase extends RoomDatabase {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             BookRoomDatabase.class, "books_data")
                             //Enable and disable this feature for testing more crazy stuff
-                            //.allowMainThreadQueries()
+                            .allowMainThreadQueries()
                             .build();
-                    Log.v("BookRoomDatabase", "Database books_data was created");
+                    Log.v("BookRoomDatabase", "Database created for now ! o_O");
                 }
             }
         }

@@ -16,15 +16,18 @@ import java.util.ArrayList;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import pl.pisze_czytam.allmybooks.databinding.AllBooksBinding;
 import pl.pisze_czytam.allmybooks.databinding.BookcaseMainBinding;
+import pl.pisze_czytam.allmybooks.roomdatabase.BookViewModel;
 
 public class MainActivity extends AppCompatActivity {
     boolean showAll;
     ArrayList<Book> allBooks = new ArrayList<>();
     AllBooksBinding allBooksBinding;
     BookcaseMainBinding bookcaseBinding;
+    BookViewModel bookViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         if (viewPref.equals(getString(R.string.list_view_value))) {
             setContentView(R.layout.all_books);
             allBooksBinding = DataBindingUtil.setContentView(this, R.layout.all_books);
-
+            bookViewModel = ViewModelProviders.of(this).get(BookViewModel.class);
             allBooks.add(new Book("Upał", "Michał Olszewski", ContextCompat.getDrawable(getApplicationContext(), R.drawable.book_cover_6)));
             allBooks.add(new Book("Duchowe życie zwierząt", "Peter Wohlleben", ContextCompat.getDrawable(getApplicationContext(), R.drawable.book_cover_1)));
             allBooks.add(new Book("Jak przestałem kochać design", "Marcin Wicha", ContextCompat.getDrawable(getApplicationContext(), R.drawable.book_cover_5)));

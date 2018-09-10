@@ -1,9 +1,9 @@
 package pl.pisze_czytam.allmybooks.roomdatabase;
 
 import android.app.Application;
+import android.util.Log;
 
 import java.util.List;
-
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
@@ -15,7 +15,7 @@ public class BookViewModel extends AndroidViewModel {
         super(application);
         repository = new BookRepository(application);
         allBooksAsc = repository.getAllBooksAsc();
-
+        Log.v("BookViewModel", "Started BookViewModel !!!!");
     }
 
     public LiveData<List<BookData>> getAllBooksAsc() {
