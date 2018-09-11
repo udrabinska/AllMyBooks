@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,14 +13,18 @@ import android.widget.Toast;
 import com.google.android.material.bottomappbar.BottomAppBar;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import pl.pisze_czytam.allmybooks.databinding.AllBooksBinding;
 import pl.pisze_czytam.allmybooks.databinding.BookcaseMainBinding;
+import pl.pisze_czytam.allmybooks.roomdatabase.BookData;
 import pl.pisze_czytam.allmybooks.roomdatabase.BookViewModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,8 +42,30 @@ public class MainActivity extends AppCompatActivity {
 
         if (viewPref.equals(getString(R.string.list_view_value))) {
             setContentView(R.layout.all_books);
+            //Viemodel will start for activity with view
             allBooksBinding = DataBindingUtil.setContentView(this, R.layout.all_books);
             bookViewModel = ViewModelProviders.of(this).get(BookViewModel.class);
+            //New book for tests
+            BookData bookData = new BookData();
+            bookData.setBookAuthor("Unknown Author");
+            bookData.setBookTitle("This is just for tests");
+            bookData.setBookCase("name of bookcase");
+            bookViewModel.insertBook(bookData);
+            //Retriving observable data
+            bookViewModel.getAllBooksAsc().observe(this, new Observer<List<BookData>>() {
+                @Override
+                public void onChanged(List<BookData> bookData) {
+                    if (bookData==null) {
+                        Log.v("MainActivity", "Your list is empty" );
+                    }
+                    else {
+                        Log.v("MainActivity", "You have some items, yay ^_^ ");
+                        for (int i = 0; i < bookData.size(); i++) {
+                            Log.v("MainActivity", "This id is: " + bookData.get(i).getBookID() + " and " + bookData.get(i).getBookImage());
+                        }
+                    }
+                }
+            });
             allBooks.add(new Book("Upał", "Michał Olszewski", ContextCompat.getDrawable(getApplicationContext(), R.drawable.book_cover_6)));
             allBooks.add(new Book("Duchowe życie zwierząt", "Peter Wohlleben", ContextCompat.getDrawable(getApplicationContext(), R.drawable.book_cover_1)));
             allBooks.add(new Book("Jak przestałem kochać design", "Marcin Wicha", ContextCompat.getDrawable(getApplicationContext(), R.drawable.book_cover_5)));
