@@ -42,14 +42,14 @@ public class MainActivity extends AppCompatActivity {
 
         if (viewPref.equals(getString(R.string.list_view_value))) {
             setContentView(R.layout.all_books);
-            //Viemodel will start for activity with view
+            //Vievmodel will start for activity with view
             allBooksBinding = DataBindingUtil.setContentView(this, R.layout.all_books);
             bookViewModel = ViewModelProviders.of(this).get(BookViewModel.class);
             //New book for tests
             BookData bookData = new BookData();
             bookData.setBookAuthor("Unknown Author");
             bookData.setBookTitle("This is just for tests");
-            bookData.setBookCase("name of bookcase");
+            bookData.setBookCase("name of a bookcase");
             bookViewModel.insertBook(bookData);
             //Retriving observable data
             bookViewModel.getAllBooksAsc().observe(this, new Observer<List<BookData>>() {

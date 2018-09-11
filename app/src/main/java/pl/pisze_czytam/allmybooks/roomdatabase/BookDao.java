@@ -26,5 +26,5 @@ public interface BookDao {
     Integer countTitleInBookTable();
 
     @Query("SELECT * from book_table ORDER BY bookID ASC")
-    LiveData<List<BookData>> getAllBooksByAddOrder();
+    LiveData<List<BookData>> getAllBooksByID();
 }

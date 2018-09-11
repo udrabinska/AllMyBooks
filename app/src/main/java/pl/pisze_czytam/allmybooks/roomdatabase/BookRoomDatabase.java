@@ -11,7 +11,7 @@ public abstract class BookRoomDatabase extends RoomDatabase {
     public abstract BookDao bookDao();
     //This item exist just for counting how many of this item is there currently running
     private static BookRoomDatabase INSTANCE;
-    //Singleton method FTW
+    //Singleton method
     public static BookRoomDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (BookRoomDatabase.class) {
@@ -22,6 +22,7 @@ public abstract class BookRoomDatabase extends RoomDatabase {
                             //.allowMainThreadQueries()
                             //This will enable clearing database
                             //.fallbackToDestructiveMigration()
+                            //All commented out code above will be deleted after testing
                             .build();
                     Log.v("BookRoomDatabase", "Database created for now ! o_O");
                 }
